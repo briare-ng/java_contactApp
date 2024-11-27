@@ -5,7 +5,6 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-//Boucle du programme principal
         try {
             printAppName();
             mainMenu();
@@ -16,6 +15,9 @@ public class Main {
         }
     }
 
+/**
+  Affiche l'accueil de l'application
+ */
     public static void printAppName() {
         for (int i = 1; i <= 7; i++) {
 
@@ -45,6 +47,9 @@ public class Main {
         System.out.println();
     }
 
+    /**
+     * Affiche un séparateur entre les menus
+     */
     public static void printSeparator() {
         for (int i = 1; i < 30; i++) {
             System.out.print("-");
@@ -52,6 +57,9 @@ public class Main {
         System.out.println();
     }
 
+    /**
+     * Menu principal de l'application
+     */
     public static void mainMenu() {
         printSeparator();
         System.out.println("1 -> Ajouter un contact");
@@ -63,27 +71,21 @@ public class Main {
         String userInput = scanInput();
         switch (userInput) {
             case "1":
-//                System.out.println("to AddNewContact ");
                 printSeparator();
                 System.out.println("Ajouter un nouveau contact");
-
                 addNewContact();
                 break;
             case "2":
-//                System.out.println("to SearchContacts ");
                 searchMenu();
                 break;
             case "3":
-//                System.out.println("to displayContacts ");
                 if (ContactsList.list.isEmpty()) {
                     System.out.println("=> Il n'y a aucun contact à afficher !");
                     mainMenu();
                 } else {
-                    //si le ArrayList n'est pas vide, afficher le menu secondaire pour le choix du tri ASC ou DSC
                     printContactListTitle();
                     sortMenu();
                 }
-                //afficher menu choix nouvelle liste ou retour mainMenu
                 break;
             case "4":
                 System.out.println();
@@ -96,6 +98,9 @@ public class Main {
         }
     }
 
+    /**
+     * Affiche le sous-menu pour la recherche de contact
+     */
     public static void searchMenu() {
         printSeparator();
         System.out.println("Rechercher un contact");
@@ -105,6 +110,9 @@ public class Main {
         afterSearchMenu();
     }
 
+    /**
+     * Affiche le menu suivant une recherche
+     */
     public static void afterSearchMenu() {
         printSeparator();
         System.out.println("1-> Rechercher un nouveau contact");
@@ -112,7 +120,6 @@ public class Main {
         System.out.print(": ");
 
         String Input = scanInput();
-
         if (Input.equals("1")) {
             searchMenu();
         } else if (Input.equals("2")) {
@@ -123,12 +130,18 @@ public class Main {
         }
     }
 
+    /**
+     * Titre en entrée du menu Liste de contacts
+     */
     public static void printContactListTitle() {
         printSeparator();
         System.out.println("Liste des contacts");
         printSeparator();
     }
 
+    /**
+     * Menu permettant de faire le tri dans l'ordre choisi
+     */
     public static void sortMenu() {
         System.out.println("1 -> Par ordre croissant");
         System.out.println("2 -> Par ordre décroissant");
@@ -142,6 +155,9 @@ public class Main {
         }
     }
 
+    /**
+     * Menu suivant l'affichage d'une liste triée
+     */
     public static void afterContactsList() {
         System.out.println("3 -> Lister les contacts à nouveau");
         System.out.println("4 -> Retour au menu principal");
@@ -156,6 +172,9 @@ public class Main {
         }
     }
 
+    /**
+     * Formulaire de saisie d'un nouveau contact
+     */
     public static void addNewContact() {
         System.out.println();
         System.out.print("Entrez son nom : ");
@@ -170,6 +189,9 @@ public class Main {
         afterNewContact();
     }
 
+    /**
+     * Menu suivant la saisie d'un nouveau contact
+     */
     public static void afterNewContact() {
         System.out.println();
         printSeparator();
@@ -186,7 +208,10 @@ public class Main {
         }
     }
 
-
+    /**
+     * Méthode permettant la lecture de la saisie utilisateur dans le terminal
+     * @return userInput
+     */
     public static String scanInput() {
         String userInput = scan.nextLine();
 //        System.out.println("Vous avez saisi l'option " + userInput);

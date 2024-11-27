@@ -1,7 +1,7 @@
 public class Contact {
-    private String nom;
-    private String prenom;
-    private String numeroTel;
+    private final String nom;
+    private final String prenom;
+    private final String numeroTel;
 
     public Contact(String n, String p,String t) {
         this.nom = n.toUpperCase();
@@ -17,10 +17,16 @@ public class Contact {
         return prenom;
     }
 
+/*
     public String getNumeroTel() {
         return numeroTel;
     }
+*/
 
+    /**
+     * Réécriture de la méthode toString pour l'affichage d'un contact
+     * @return prénom + nom + numéro
+     */
     @Override
     public String toString(){
         return "-> " + prenom + " " + nom + " : " + numeroTel;
